@@ -882,6 +882,14 @@ export default function Chatbot() {
               )}
 
               <div className="mm-options">
+                {node.cta && (
+                  <button
+                    className="mm-option-chip"
+                    onClick={() => handleOptionClick(node.cta)}
+                  >
+                    {typeof node.cta.label === "function" ? node.cta.label(t) : node.cta.label}
+                  </button>
+                )}
                 <button className="mm-option-chip" onClick={() => setCurrentNodeId("main_menu")}>
                   {t.goBack}
                 </button>

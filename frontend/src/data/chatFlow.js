@@ -23,7 +23,10 @@ export const PRODUCTS = {
     label: "Manimark Snacks",
     moreLink: LINKS.website,
     items: [
-      { name: "Peanut Chikki Bar", url: LINKS.website },
+      // "image" points at /public/assets — drop the real packshot file
+      // there and add its path here; leaving it out falls back to the
+      // drawn chikki-bar illustration so the UI never shows a broken image.
+      { name: "Peanut Chikki Bar", url: LINKS.website, image: "/assets/product-strip.png" },
       { name: "Kadalai Mittai", url: LINKS.website },
       { name: "Murukku & Thattai", url: LINKS.website },
     ],
@@ -70,6 +73,7 @@ export const STRINGS = {
     // Main menu options
     menuConnect: "Connect with us",
     menuProducts: "Our products",
+    menuPartyOrders: "Party Orders 🎉",
     menuStore: "Where to find us",
     menuFeedback: "Complaint / feedback",
     menuContact: "Contact us",
@@ -78,6 +82,14 @@ export const STRINGS = {
     queryDamaged: "Product damaged",
     queryQuality: "Quality issue",
     queryOthers: "Others",
+    // Party orders
+    partyOrdersTitle: "Planning a celebration? Pick your favourite treats for the party! 🎉",
+    partyOrderCta: "Place a party order",
+    partyFormIntro: "Tell us about your party order and we'll get it ready:",
+    nameLabel: "Your name",
+    partyTypeLabel: "Type of party / function",
+    quantityLabel: "Quantity",
+    partyDescriptionLabel: "Any additional details (optional)",
   },
   tamil: {
     welcome: "வணக்கம்! நான் மார்க் 👋 Arcot Manimark Foods-க்கு வரவேற்கிறேன்!",
@@ -115,6 +127,7 @@ export const STRINGS = {
     goBack: "மெனுவிற்குத் திரும்பு",
     menuConnect: "எங்களுடன் இணைய",
     menuProducts: "எங்கள் பொருட்கள்",
+    menuPartyOrders: "விழா ஆர்டர்கள் 🎉",
     menuStore: "எங்களை எங்கே காணலாம்",
     menuFeedback: "புகார் / கருத்து",
     menuContact: "தொடர்பு கொள்ள",
@@ -122,6 +135,14 @@ export const STRINGS = {
     queryDamaged: "பொருள் சேதமடைந்துள்ளது",
     queryQuality: "தர பிரச்சனை",
     queryOthers: "மற்றவை",
+    // Party orders
+    partyOrdersTitle: "விழா திட்டமிடுகிறீர்களா? விருந்துக்கு பிடித்த சிற்றுண்டிகளைத் தேர்ந்தெடுக்கவும்! 🎉",
+    partyOrderCta: "விழா ஆர்டர் செய்ய",
+    partyFormIntro: "உங்கள் விழா ஆர்டர் பற்றி கூறுங்கள், நாங்கள் தயார் செய்கிறோம்:",
+    nameLabel: "உங்கள் பெயர்",
+    partyTypeLabel: "விழா / நிகழ்ச்சி வகை",
+    quantityLabel: "அளவு",
+    partyDescriptionLabel: "கூடுதல் விவரங்கள் (விருப்பத்தேர்வு)",
   },
 };
 
@@ -149,6 +170,7 @@ export const FLOW = {
     options: [
       { label: (t) => t.menuConnect, next: "connect" },
       { label: (t) => t.menuProducts, next: "products" },
+      { label: (t) => t.menuPartyOrders, next: "party_orders" },
       { label: (t) => t.menuStore, next: "store" },
       { label: (t) => t.menuFeedback, next: "queries" },
       { label: (t) => t.menuContact, next: "contact" },
@@ -172,6 +194,36 @@ export const FLOW = {
     text: (t) => t.productsTitle,
     platform: "snacks",
     accent: "snacks",
+  },
+
+  // Party Orders: show the same snack catalog with photos, plus a CTA
+  // that opens the party-order form below.
+  party_orders: {
+    type: "products",
+    text: (t) => t.partyOrdersTitle,
+    platform: "snacks",
+    accent: "party",
+    cta: {
+      label: (t) => t.partyOrderCta,
+      queryType: "party_order",
+      next: "party_order_form",
+    },
+  },
+
+  // Party order form: fields collected then POSTed to the backend
+  // with queryType "party_order".
+  party_order_form: {
+    type: "form",
+    text: (t) => t.partyFormIntro,
+    fields: [
+      { key: "name", labelKey: "nameLabel" },
+      { key: "contactNumber", labelKey: "contactLabel", inputType: "tel" },
+      { key: "typeOfParty", labelKey: "partyTypeLabel" },
+      { key: "product", labelKey: "productLabel" },
+      { key: "quantity", labelKey: "quantityLabel", inputType: "number" },
+      { key: "description", labelKey: "partyDescriptionLabel", multiline: true },
+    ],
+    next: "thank_you",
   },
 
   store: {
