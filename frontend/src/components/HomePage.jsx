@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./Homepage.css";
+import "./HomePage.css";
 
 function AnimatedCursor({
   containerRef,
