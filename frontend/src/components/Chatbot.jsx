@@ -890,7 +890,19 @@ export default function Chatbot() {
                     {typeof node.cta.label === "function" ? node.cta.label(t) : node.cta.label}
                   </button>
                 )}
-                <button className="mm-option-chip" onClick={() => setCurrentNodeId("main_menu")}>
+                {node.extraLinks?.map((opt) => {
+                  const labelText = typeof opt.label === "function" ? opt.label(t) : opt.label;
+                  return (
+                    <button
+                      key={labelText}
+                      className="mm-option-chip"
+                      onClick={() => handleOptionClick(opt)}
+                    >
+                      {labelText}
+                    </button>
+                  );
+                })}
+                <button className="mm-option-chip" onClick={() => setCurrentNodeId(node.backTo || "main_menu")}>
                   {t.goBack}
                 </button>
               </div>

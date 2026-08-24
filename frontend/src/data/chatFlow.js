@@ -13,6 +13,14 @@ export const LINKS = {
   directions:
     "https://www.google.com/maps/search/?api=1&query=S.F.No.+870%2F5%2C+Narayanapuram+Village%2C+Kannamangalam+Road%2C+Kavanoor+Post%2C+Arcot+Taluk%2C+Ranipet+District%2C+Tamil+Nadu+632507",
   email: "mailto:arcotmanimarkfoodspvtltd@gmail.com",
+  // Quick commerce (fast delivery apps)
+  blinkit:
+    "https://blinkit.com/prn/assorted-burfi-combo-by-arcot-mani-mark/prid/791289",
+  bigbasket: "https://www.bigbasket.com/pb/manimark/",
+  // E-commerce marketplaces
+  swiggy:
+    "https://www.swiggy.com/city/chennai/arcot-manimark-kadalaimittai-omr-navalur-rest1105377",
+  amazon: "https://www.amazon.in/s?k=ARCOT+MANI+MARK&ref=bl_dp_s_web_0",
 };
 
 // Snack line-up shown as cards. Replace `image` with real packshot URLs
@@ -26,9 +34,91 @@ export const PRODUCTS = {
       // "image" points at /public/assets — drop the real packshot file
       // there and add its path here; leaving it out falls back to the
       // drawn chikki-bar illustration so the UI never shows a broken image.
-      { name: "Peanut Chikki Bar", url: LINKS.website, image: "/assets/product-strip.png" },
-      { name: "Kadalai Mittai", url: LINKS.website },
-      { name: "Murukku & Thattai", url: LINKS.website },
+      //
+      // NOTE: the two images below are hotlinked from a third-party retailer
+      // (vihangrocery.com) that stocks genuine Manimark packs — good for a
+      // preview, but swap these for locally-hosted files in /public/assets
+      // once you have the official packshots, so the chatbot never depends
+      // on another site staying online.
+      { name: "Peanut Chikki Bar", url: LINKS.website, image: "https://vihangrocery.com/cdn/shop/files/219c7f_bb7814bd1d034b14b7655ba483eddcba_mv2_d48618d8-462f-4ab0-9e5e-fe6c2ca2e530.png" },
+      { name: "Kadalai Mittai", url: LINKS.website, image: "https://vihangrocery.com/cdn/shop/files/manimark-peanut-burfi-135g.jpg" },
+      // Local packshot, served from /public/assets/murukku-thattai.jpg
+      { name: "Murukku & Thattai", url: LINKS.website, image: "/assets/muruku.jpg" },
+    ],
+  },
+
+  // Quick commerce — Blinkit. Only one live Blinkit product page is known
+  // today (the assorted burfi combo), so all three cards point there for
+  // now; replace each `url` with its own Blinkit product page once you
+  // have individual listings.
+  blinkit: {
+    label: "Blinkit",
+    moreLink: LINKS.blinkit,
+    items: [
+      { name: "Peanut Chikki Bar", url: LINKS.blinkit, image: "https://vihangrocery.com/cdn/shop/files/219c7f_bb7814bd1d034b14b7655ba483eddcba_mv2_d48618d8-462f-4ab0-9e5e-fe6c2ca2e530.png" },
+   ,
+    ],
+  },
+
+  // Quick commerce — BigBasket. Individual product pages, with real
+  // packshots pulled from each product's bigbasket listing.
+  bigbasket: {
+    label: "BigBasket",
+    moreLink: LINKS.bigbasket,
+    items: [
+      {
+        name: "Rice Muruku - Crunchy Snack (350 g)",
+        url: "https://www.bigbasket.com/pd/40283946/manimark-rice-muruku-crunchy-snack-350-g/",
+        image: "https://www.bbassets.com/media/uploads/p/s/40283946_2-manimark-rice-muruku-crunchy-snack.jpg",
+      },
+      {
+        name: "Butter Mottas - Crunchy Snack (160 g)",
+        url: "https://www.bigbasket.com/pd/40283948/manimark-butter-mottas-crunchy-snack-160-g/",
+        image: "https://www.bbassets.com/media/uploads/p/s/40283948_1-manimark-butter-mottas-crunchy-snack.jpg",
+      },
+      {
+        name: "Peanut Balls - Crunchy (180 g)",
+        url: "https://www.bigbasket.com/pd/40283978/manimark-peanut-balls-crunchy-180-g/",
+        image: "https://www.bbassets.com/media/uploads/p/s/40283978_2-manimark-peanut-balls-crunchy.jpg",
+      },
+    ],
+  },
+
+  // E-commerce — Swiggy. Swiggy lists the Manimark storefront rather than
+  // separate per-item pages, so all three cards point to the restaurant
+  // page for now; update each `url` if per-item deep links become available.
+  swiggy: {
+    label: "Swiggy",
+    moreLink: LINKS.swiggy,
+    items: [
+      { name: "Peanut Chikki Bar", url: LINKS.swiggy, image: "https://vihangrocery.com/cdn/shop/files/219c7f_bb7814bd1d034b14b7655ba483eddcba_mv2_d48618d8-462f-4ab0-9e5e-fe6c2ca2e530.png" },
+     
+    ],
+  },
+
+  // E-commerce — Amazon. Individual product pages.
+  amazon: {
+    label: "Amazon",
+    moreLink: LINKS.amazon,
+    items: [
+      {
+        name: "Peanut Chikki (Crushed Jaggery)",
+        url: "https://www.amazon.in/ARCOT-MANIMARK-Crushed-Jaggery-Preservatives/dp/B0H1JKCD84/",
+        image: "https://vihangrocery.com/cdn/shop/files/219c7f_bb7814bd1d034b14b7655ba483eddcba_mv2_d48618d8-462f-4ab0-9e5e-fe6c2ca2e530.png",
+      },
+      {
+        name: "Peanut Chikki (Jaggery Sweetened)",
+        url: "https://www.amazon.in/ARCOT-MANIMARK-Jaggery-Sweetened-Preservatives/dp/B0H1K75G24/",
+        image: "https://vihangrocery.com/cdn/shop/files/manimark-peanut-burfi-135g.jpg",
+      },
+      {
+        name: "Roasted Peanut Chikki (Traditional)",
+        url: "https://www.amazon.in/ARCOT-MANIMARK-Roasted-Preservatives-Traditional/dp/B0H1JZSQ8M/",
+        // Amazon blocks automated image fetching, so this reuses the
+        // closest matching peanut-chikki packshot as a placeholder —
+        // swap in the real Amazon listing photo when you have it.
+        image: "https://vihangrocery.com/cdn/shop/files/manimark-peanut-burfi-135g.jpg",
+      },
     ],
   },
 };
@@ -72,11 +162,19 @@ export const STRINGS = {
     goBack: "Back to menu",
     // Main menu options
     menuConnect: "Connect with us",
+    menuQuickCommerce: "Quick commerce order",
+    menuEcommerce: "E-commerce order",
     menuProducts: "Our products",
     menuPartyOrders: "Party Orders 🎉",
     menuStore: "Where to find us",
     menuFeedback: "Complaint / feedback",
     menuContact: "Contact us",
+    quickCommercePrompt: "Order for quick delivery on:",
+    ecommercePrompt: "Order online on:",
+    blinkitProductsPrompt: "Order these on Blinkit ⚡",
+    bigbasketProductsPrompt: "Order these on BigBasket 🧺",
+    swiggyProductsPrompt: "Order these on Swiggy 🍽️",
+    amazonProductsPrompt: "Order these on Amazon 🛒",
     // Query options
     queryNotReceived: "Product not received",
     queryDamaged: "Product damaged",
@@ -126,11 +224,19 @@ export const STRINGS = {
     restart: "மீண்டும் தொடங்கு",
     goBack: "மெனுவிற்குத் திரும்பு",
     menuConnect: "எங்களுடன் இணைய",
+    menuQuickCommerce: "க்விக் கామர்ஸ் ஆர்டர்",
+    menuEcommerce: "இ-காமர்ஸ் ஆர்டர்",
     menuProducts: "எங்கள் பொருட்கள்",
     menuPartyOrders: "விழா ஆர்டர்கள் 🎉",
     menuStore: "எங்களை எங்கே காணலாம்",
     menuFeedback: "புகார் / கருத்து",
     menuContact: "தொடர்பு கொள்ள",
+    quickCommercePrompt: "விரைவு டெலிவரிக்கு இங்கே ஆர்டர் செய்யவும்:",
+    ecommercePrompt: "ஆன்லைனில் இங்கே ஆர்டர் செய்யவும்:",
+    blinkitProductsPrompt: "Blinkit-இல் இவற்றை ஆர்டர் செய்யவும் ⚡",
+    bigbasketProductsPrompt: "BigBasket-இல் இவற்றை ஆர்டர் செய்யவும் 🧺",
+    swiggyProductsPrompt: "Swiggy-இல் இவற்றை ஆர்டர் செய்யவும் 🍽️",
+    amazonProductsPrompt: "Amazon-இல் இவற்றை ஆர்டர் செய்யவும் 🛒",
     queryNotReceived: "பொருள் கிடைக்கவில்லை",
     queryDamaged: "பொருள் சேதமடைந்துள்ளது",
     queryQuality: "தர பிரச்சனை",
@@ -169,12 +275,70 @@ export const FLOW = {
     text: (t) => t.mainMenu,
     options: [
       { label: (t) => t.menuConnect, next: "connect" },
+      { label: (t) => t.menuQuickCommerce, next: "quick_commerce" },
+      { label: (t) => t.menuEcommerce, next: "e_commerce" },
       { label: (t) => t.menuProducts, next: "products" },
       { label: (t) => t.menuPartyOrders, next: "party_orders" },
       { label: (t) => t.menuStore, next: "store" },
       { label: (t) => t.menuFeedback, next: "queries" },
       { label: (t) => t.menuContact, next: "contact" },
     ],
+  },
+
+  // Quick commerce: fast-delivery apps that stock Manimark products.
+  // Choosing a platform shows the 3 products available there.
+  quick_commerce: {
+    type: "options",
+    text: (t) => t.quickCommercePrompt,
+    options: [
+      { label: "⚡ Blinkit", next: "quick_commerce_blinkit" },
+      { label: "🧺 BigBasket", next: "quick_commerce_bigbasket" },
+      { label: (t) => t.goBack, next: "main_menu" },
+    ],
+  },
+
+  quick_commerce_blinkit: {
+    type: "products",
+    text: (t) => t.blinkitProductsPrompt,
+    platform: "blinkit",
+    accent: "quickcommerce",
+    backTo: "quick_commerce",
+  },
+
+  quick_commerce_bigbasket: {
+    type: "products",
+    text: (t) => t.bigbasketProductsPrompt,
+    platform: "bigbasket",
+    accent: "quickcommerce",
+    backTo: "quick_commerce",
+  },
+
+  // E-commerce: marketplaces / food-delivery apps that list Manimark products.
+  // Choosing a platform shows the 3 products available there.
+  e_commerce: {
+    type: "options",
+    text: (t) => t.ecommercePrompt,
+    options: [
+      { label: "🍽️ Swiggy", next: "e_commerce_swiggy" },
+      { label: "🛒 Amazon", next: "e_commerce_amazon" },
+      { label: (t) => t.goBack, next: "main_menu" },
+    ],
+  },
+
+  e_commerce_swiggy: {
+    type: "products",
+    text: (t) => t.swiggyProductsPrompt,
+    platform: "swiggy",
+    accent: "ecommerce",
+    backTo: "e_commerce",
+  },
+
+  e_commerce_amazon: {
+    type: "products",
+    text: (t) => t.amazonProductsPrompt,
+    platform: "amazon",
+    accent: "ecommerce",
+    backTo: "e_commerce",
   },
 
   connect: {
