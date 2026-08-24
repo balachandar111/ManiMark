@@ -173,8 +173,8 @@ body {
 .title-wrapper h1 {
   margin: 0;
   color: #991647;
-  font-size: clamp(15px, 4.8vw, 24px);
-  font-weight: 900;
+  font-size: clamp(20px, 4.8vw, 29px);
+  font-weight: 1000;
   line-height: 1.18;
   letter-spacing: 0.02em;
   text-shadow: 1px 1px rgba(255, 255, 255, 0.35);
