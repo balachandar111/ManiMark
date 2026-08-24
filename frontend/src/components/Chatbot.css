@@ -68,8 +68,6 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  left: 20px;
-  margin: 0 auto;
   max-width: 360px;
   display: flex;
   align-items: center;
@@ -1000,7 +998,7 @@
   .mm-more-link { margin-left: 0; }
   .mm-product-grid { grid-template-columns: repeat(auto-fit, minmax(122px, 1fr)); }
   .mm-fab-subtitle { display: none; }
-  .mm-chat-fab { padding: 8px 16px 8px 8px; }
+  .mm-chat-fab { padding: 8px 16px 8px 8px; right: 14px; bottom: 14px; max-width: calc(100vw - 28px); }
 }
 
 /* ---------------- Reduced motion ---------------- */

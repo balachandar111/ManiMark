@@ -193,7 +193,9 @@ const Homepage = () => {
           {/* YouTube */}
           <a
             ref={youtubeRef}
-            href="#youtube"
+            href="https://www.youtube.com/channel/UC3h-J8j4uvtQGJd_Lz8lxOw"
+            target="_blank"
+            rel="noopener noreferrer"
             className="social-icon youtube-icon"
             aria-label="YouTube"
           >
@@ -209,7 +211,9 @@ const Homepage = () => {
           {/* Facebook */}
           <a
             ref={facebookRef}
-            href="#facebook"
+            href="https://www.facebook.com/Manimarkfoodspvtltd/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="social-icon facebook-icon"
             aria-label="Facebook"
           >
@@ -225,7 +229,9 @@ const Homepage = () => {
           {/* Instagram */}
           <a
             ref={instagramRef}
-            href="#instagram"
+            href="https://www.instagram.com/arcotmanimark_official/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="social-icon instagram-icon"
             aria-label="Instagram"
           >
@@ -257,7 +263,9 @@ const Homepage = () => {
           {/* Website */}
           <a
             ref={websiteRef}
-            href="#website"
+            href="https://www.manimark.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="social-icon website-icon"
             aria-label="Website"
           >
