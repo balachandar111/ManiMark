@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 html,
@@ -12,6 +18,7 @@ body,
 body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: #28162a;
+  overflow-x: hidden;
 }
 
 .homepage-container {
@@ -19,7 +26,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
-  overflow: hidden;
+  max-width: 100vw;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +39,11 @@ body {
     ),
     linear-gradient(180deg, #ffc933 0%, #ffbf1d 100%);
   isolation: isolate;
+  /* Respect notches/home-indicators on iOS when the viewport meta tag
+     includes viewport-fit=cover. Falls back to 0 elsewhere. */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 /* Background decoration */
@@ -62,14 +75,15 @@ body {
 /* Decorative medallion — a stamped, wax-seal style badge instead of a
    flat cut-corner shape. Pure CSS: gradient disc + dashed inner ring +
    a small accent dot, gently rocking to feel handcrafted rather than
-   static. */
+   static. Sized with clamp() and kept inside the container's overflow
+   so it never causes horizontal scroll on small phones. */
 
 .decorative-shape {
   position: absolute;
   top: -58px;
   right: -52px;
-  width: clamp(140px, 34vw, 190px);
-  height: clamp(140px, 34vw, 190px);
+  width: clamp(120px, 32vw, 190px);
+  height: clamp(120px, 32vw, 190px);
   z-index: 1;
   border-radius: 50%;
   background:
@@ -134,12 +148,13 @@ body {
   width: min(92%, 470px);
   display: flex;
   align-items: center;
-  padding: 28px 0 10px;
+  padding: clamp(18px, 6vw, 28px) 0 10px;
+  gap: 12px;
 }
 
 .logo-wrapper {
-  width: clamp(84px, 24vw, 114px);
-  flex: 0 0 clamp(84px, 24vw, 114px);
+  width: clamp(72px, 22vw, 114px);
+  flex: 0 0 clamp(72px, 22vw, 114px);
 }
 
 .logo-img {
@@ -150,19 +165,20 @@ body {
 }
 
 .title-wrapper {
-  margin-left: 16px;
+  margin-left: 4px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .title-wrapper h1 {
   margin: 0;
   color: #991647;
-  font-size: clamp(16px, 4.6vw, 24px);
+  font-size: clamp(15px, 4.8vw, 24px);
   font-weight: 900;
   line-height: 1.18;
   letter-spacing: 0.02em;
   text-shadow: 1px 1px rgba(255, 255, 255, 0.35);
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .title-wrapper h1 span {
@@ -176,12 +192,12 @@ body {
 .main-card {
   position: relative;
   z-index: 5;
-  width: min(90%, 410px);
-  padding: clamp(18px, 5vw, 22px) clamp(14px, 4.5vw, 18px)
-    clamp(20px, 5.5vw, 24px);
+  width: min(92%, 410px);
+  padding: clamp(16px, 5.5vw, 22px) clamp(12px, 4.5vw, 18px)
+    clamp(18px, 5.5vw, 24px);
   margin: 8px 0 18px;
   border: 1px solid rgba(255, 255, 255, 0.82);
-  border-radius: 26px;
+  border-radius: clamp(18px, 6vw, 26px);
   background: rgba(255, 255, 255, 0.96);
   box-shadow:
     0 24px 38px rgba(122, 73, 0, 0.16),
@@ -191,9 +207,9 @@ body {
 .main-card h2 {
   margin: 0 0 16px;
   color: #111;
-  font-size: clamp(15px, 4vw, 17px);
+  font-size: clamp(14px, 4.2vw, 17px);
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
   letter-spacing: 0.02em;
 }
@@ -206,9 +222,10 @@ body {
 
 .social-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(10px, 3.5vw, 20px);
-  margin-bottom: 28px;
+  gap: clamp(8px, 3.5vw, 20px);
+  margin-bottom: clamp(18px, 6vw, 28px);
 }
 
 .social-icon {
@@ -216,8 +233,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(52px, 15vw, 66px);
-  height: clamp(52px, 15vw, 66px);
+  width: clamp(48px, 15vw, 66px);
+  height: clamp(48px, 15vw, 66px);
   flex: 0 0 auto;
   color: #fff;
   text-decoration: none;
@@ -261,13 +278,13 @@ body {
 }
 
 .icon-svg {
-  width: 32px;
-  height: 32px;
+  width: 60%;
+  height: 60%;
 }
 
 .instagram-svg {
-  width: 29px;
-  height: 29px;
+  width: 54%;
+  height: 54%;
 }
 
 /* Address */
@@ -275,7 +292,7 @@ body {
 .address-box {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: clamp(10px, 3.5vw, 14px);
   width: 100%;
   padding: 12px 13px;
   color: inherit;
@@ -305,9 +322,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(48px, 14vw, 58px);
-  height: clamp(48px, 14vw, 58px);
-  flex: 0 0 clamp(48px, 14vw, 58px);
+  width: clamp(44px, 14vw, 58px);
+  height: clamp(44px, 14vw, 58px);
+  flex: 0 0 clamp(44px, 14vw, 58px);
   border-radius: 50%;
   color: #fff;
   background: #2d4b86;
@@ -321,10 +338,12 @@ body {
 
 .address-box p {
   margin: 0;
+  min-width: 0;
   color: #4e4a42;
-  font-size: 11px;
+  font-size: clamp(10px, 3.1vw, 11px);
   font-weight: 600;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 /* Product image */
@@ -335,9 +354,8 @@ body {
   width: min(100%, 500px);
   margin-top: auto;
   overflow: hidden;
-  border-radius: 30px 30px 0 0;
+  border-radius: clamp(20px, 6vw, 30px) clamp(20px, 6vw, 30px) 0 0;
   padding-bottom: env(safe-area-inset-bottom, 0px);
- 
 }
 
 .product-img {
@@ -518,22 +536,64 @@ body {
   }
 }
 
-/* Extra-narrow phones */
+/* Extra-narrow phones (iPhone SE / small Android, ~320–359px) */
 @media (max-width: 359px) {
   .header-section {
-    padding: 20px 0 8px;
+    padding: 16px 0 8px;
+    gap: 8px;
+  }
+
+  .logo-wrapper {
+    width: 62px;
+    flex: 0 0 62px;
   }
 
   .main-card {
-    border-radius: 20px;
+    width: 94%;
+    border-radius: 18px;
   }
 
   .social-row {
     gap: 8px;
   }
 
+  .address-box {
+    padding: 10px;
+  }
+
   .address-box p {
-    font-size: 10.5px;
+    font-size: 9.5px;
+  }
+}
+
+/* Short / landscape screens: trim vertical rhythm so the card and
+   product strip both stay visible without excessive scrolling. */
+@media (max-height: 560px) and (orientation: landscape) {
+  .header-section {
+    padding: 10px 0 6px;
+  }
+
+  .main-card {
+    margin: 4px 0 10px;
+    padding: 12px 14px 14px;
+  }
+
+  .social-row {
+    margin-bottom: 12px;
+  }
+
+  .social-icon {
+    width: clamp(40px, 10vw, 52px);
+    height: clamp(40px, 10vw, 52px);
+  }
+
+  .product-strip {
+    max-height: 30vh;
+  }
+
+  .product-img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
