@@ -247,6 +247,7 @@ body {
 }
 
 .social-icon {
+  --icon-color: var(--color-brand-magenta);
   position: relative;
   display: flex;
   align-items: center;
@@ -254,19 +255,27 @@ body {
   width: clamp(48px, 15vw, 66px);
   height: clamp(48px, 15vw, 66px);
   flex: 0 0 auto;
-  color: #fff;
+  color: var(--icon-color);
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--icon-color) 28%, #fff);
   text-decoration: none;
   border-radius: 50%;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--icon-color) 16%, transparent);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .social-icon:hover,
 .social-icon:focus-visible {
-  transform: translateY(-5px) scale(1.08);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  background: var(--icon-color);
+  color: #fff;
+  border-color: var(--icon-color);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--icon-color) 35%, transparent);
   outline: none;
 }
 
@@ -275,24 +284,19 @@ body {
 }
 
 .youtube-icon {
-  background: var(--color-brand-magenta-dark);
+  --icon-color: var(--color-brand-magenta-dark);
 }
 
 .facebook-icon {
-  background: var(--color-brand-teal);
+  --icon-color: var(--color-brand-teal);
 }
 
 .instagram-icon {
-  background: linear-gradient(
-    135deg,
-    var(--color-brand-orange) 0%,
-    var(--color-brand-magenta) 50%,
-    var(--color-brand-magenta-dark) 100%
-  );
+  --icon-color: var(--color-brand-magenta);
 }
 
 .website-icon {
-  background: var(--color-brand-magenta);
+  --icon-color: var(--color-brand-orange);
 }
 
 .icon-svg {
