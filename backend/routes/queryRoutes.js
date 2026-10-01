@@ -56,6 +56,9 @@ router.post("/", (req, res) => {
         rate,
         contactNumber,
         description,
+        name,
+        typeOfParty,
+        quantity,
       } = req.body;
 
       if (!sessionId || !queryType) {
@@ -89,6 +92,9 @@ router.post("/", (req, res) => {
         rate,
         contactNumber,
         description,
+        name,
+        typeOfParty,
+        quantity,
         attachmentUrl,
       });
 

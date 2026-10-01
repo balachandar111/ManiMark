@@ -1,3 +1,19 @@
+/* Manimark website brand palette */
+:root {
+  --color-brand-magenta: #e23aa6;
+  --color-brand-magenta-dark: #c41687;
+  --color-brand-yellow: #ffd705;
+  --color-brand-yellow-light: #f6ea48;
+  --color-brand-teal: #3dc3cf;
+  --color-brand-teal-light: #b0e2e8;
+  --color-brand-pink-soft: #fcebf6;
+  --color-brand-pink-card: #fe7fc3;
+  --color-brand-review-yellow: #ffdb1e;
+  --color-brand-orange: #f0720c;
+  --color-brand-gray: #6b6b6b;
+  --color-brand-ink: #3a0f2c;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,8 +27,8 @@ body,
 body {
   margin: 0;
   font-family: "Segoe UI", Roboto, sans-serif;
-  background: #fdfaf3;
-  color: #2a2a2a;
+  background: var(--color-brand-pink-soft);
+  color: var(--color-brand-ink);
   /* HomePage is a normal scrolling page now (the chatbot below still
      locks body scroll itself while it's open in full screen). */
   overflow-y: auto;
@@ -28,10 +44,10 @@ body {
 }
 
 .page-header h1 {
-  color: #1f7a3d;
+  color: var(--color-brand-magenta-dark);
   margin-bottom: 4px;
 }
 
 .page-header p {
-  color: #555;
+  color: var(--color-brand-gray);
 }

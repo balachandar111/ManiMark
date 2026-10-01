@@ -12,7 +12,8 @@ const QuerySchema = new mongoose.Schema(
       enum: ["english", "tamil"],
       default: "english",
     },
-    // Which button the user tapped under "Queries"
+    // Which button the user tapped under "Queries" (or "party_order" for
+    // a party-order form submission)
     queryType: {
       type: String,
       enum: [
@@ -21,6 +22,7 @@ const QuerySchema = new mongoose.Schema(
         "damaged",       // Product damaged
         "missed",        // Product missed
         "others",
+        "party_order",   // Party Orders form
       ],
       required: true,
     },
@@ -31,6 +33,10 @@ const QuerySchema = new mongoose.Schema(
     rate: { type: String, trim: true, default: "" }, // price/quantity as noted by the customer
     contactNumber: { type: String, trim: true, default: "" },
     description: { type: String, trim: true, default: "" }, // free-text used for "others"/"share your query"
+    // Party Orders form fields
+    name: { type: String, trim: true, default: "" }, // customer's name
+    typeOfParty: { type: String, trim: true, default: "" }, // e.g. birthday, wedding
+    quantity: { type: String, trim: true, default: "" },
     status: {
       type: String,
       enum: ["new", "in_progress", "resolved"],

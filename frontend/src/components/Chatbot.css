@@ -1,38 +1,31 @@
 /* ---------------------------------------------------------------------
-   Manimark "Speak with Mark" chatbot theme — Premium Animated Edition
-   Palette (sampled from the brand's Connect page):
-     --mm-yellow    brand background yellow
-     --mm-maroon    brand maroon/magenta (header, title text)
-     --mm-maroon-deep hover / pressed maroon
-     --mm-cream     soft cream card fill
-     --mm-gold      bell-gold accent
-     --mm-teal      playful accent circle
-     --mm-ink       near-black body text
-     --mm-chili     error red
+   Manimark "Speak with Mark" chatbot - website colour theme
+   COLOUR-ONLY changes: layout, sizes, spacing and fonts are untouched,
+   so the structure stays exactly as before. Edit the colours below.
 --------------------------------------------------------------------- */
 
 :root {
-  --mm-yellow: #ffc835;
-  --mm-yellow-soft: #fde9b2;
-  --mm-maroon: #a21b5b;
-  --mm-maroon-deep: #7a1246;
-  --mm-maroon-bright: #c92670;
-  --mm-cream: #fffaf0;
-  --mm-gold: #bf9a4e;
-  --mm-teal: #7edbe5;
-  --mm-ink: #2a1420;
-  --mm-chili: #c1442d;
+  --mm-yellow: #ffd705;          /* brand yellow */
+  --mm-yellow-soft: #fcebf6;     /* light pink (replaces soft yellow) */
+  --mm-maroon: #c41687;          /* brand magenta dark */
+  --mm-maroon-deep: #a01070;     /* hover / pressed */
+  --mm-maroon-bright: #e23aa6;   /* brand magenta */
+  --mm-cream: #fff6fb;           /* input / card fill */
+  --mm-gold: #ffdb1e;            /* accent yellow */
+  --mm-teal: #3dc3cf;            /* brand teal */
+  --mm-ink: #3a0f2c;             /* body text */
+  --mm-chili: #e5484d;           /* error red */
   --mm-online: #34d399;
 
   --mm-font-display: "Fraunces", Georgia, serif;
   --mm-font-body: "Public Sans", "Segoe UI", Roboto, sans-serif;
   --mm-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
-  --mm-shadow-soft: 0 8px 28px rgba(42, 20, 32, 0.10);
-  --mm-shadow-lift: 0 16px 40px rgba(122, 18, 70, 0.22);
+  --mm-shadow-soft: 0 8px 28px rgba(58, 15, 44, 0.10);
+  --mm-shadow-lift: 0 16px 40px rgba(160, 16, 112, 0.22);
   --mm-ease: cubic-bezier(0.22, 0.9, 0.32, 1);
-  --mm-glow: rgba(255, 200, 53, 0.65);
-  --mm-spark: #fff3cf;
+  --mm-glow: rgba(255, 215, 5, 0.7);
+  --mm-spark: #fff9d6;
 }
 
 /* ---------------- Hero Mark: bob, glow ring & sparkle mixins ----------------
@@ -72,14 +65,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(135deg, var(--mm-maroon) 0%, var(--mm-maroon-bright) 55%, var(--mm-maroon-deep) 100%);
+  background: linear-gradient(135deg, var(--mm-maroon-bright) 0%, var(--mm-maroon) 100%);
   background-size: 200% 200%;
   color: #fff;
   border: none;
   border-radius: 999px;
   padding: 10px 22px 10px 10px;
   font-family: var(--mm-font-body);
-  box-shadow: 0 10px 26px rgba(122, 18, 70, 0.4), 0 0 0 0 rgba(255, 200, 53, 0.5);
+  box-shadow: 0 10px 26px rgba(160, 16, 112, 0.4), 0 0 0 0 rgba(255, 215, 5, 0.5);
   cursor: pointer;
   z-index: 1000;
   transition: transform 0.22s var(--mm-ease), box-shadow 0.22s var(--mm-ease), background-position 0.4s ease;
@@ -90,8 +83,8 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes mm-fab-glow {
-  0%, 100% { box-shadow: 0 10px 26px rgba(122, 18, 70, 0.4), 0 0 0 0 rgba(255, 200, 53, 0.45); }
-  50% { box-shadow: 0 10px 30px rgba(122, 18, 70, 0.48), 0 0 0 10px rgba(255, 200, 53, 0); }
+  0%, 100% { box-shadow: 0 10px 26px rgba(160, 16, 112, 0.4), 0 0 0 0 rgba(255, 215, 5, 0.45); }
+  50% { box-shadow: 0 10px 30px rgba(160, 16, 112, 0.48), 0 0 0 10px rgba(255, 215, 5, 0); }
 }
 @keyframes mm-fab-gradient {
   0%, 100% { background-position: 0% 50%; }
@@ -99,7 +92,7 @@
 }
 .mm-chat-fab:hover {
   transform: translateY(-3px) scale(1.015);
-  box-shadow: 0 18px 34px rgba(122, 18, 70, 0.5), 0 0 0 6px rgba(255, 200, 53, 0.18);
+  box-shadow: 0 18px 34px rgba(160, 16, 112, 0.5), 0 0 0 6px rgba(255, 215, 5, 0.18);
 }
 .mm-chat-fab:active {
   transform: translateY(-1px) scale(0.99);
@@ -193,9 +186,9 @@
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(1100px 500px at 15% -10%, rgba(255, 255, 255, 0.55), transparent 60%),
-    radial-gradient(900px 500px at 110% 10%, rgba(255, 255, 255, 0.35), transparent 55%),
-    linear-gradient(180deg, var(--mm-yellow) 0%, var(--mm-yellow-soft) 100%);
+    radial-gradient(1100px 500px at 15% -10%, rgba(255, 255, 255, 0.7), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(255, 255, 255, 0.5), transparent 55%),
+    #fcebf6;
   font-family: var(--mm-font-body);
   color: var(--mm-ink);
   animation: mm-fade-in 0.28s var(--mm-ease) both;
@@ -249,13 +242,13 @@
   justify-content: space-between;
   gap: 12px;
   padding: 16px 18px;
-  background: linear-gradient(120deg, var(--mm-maroon-deep) 0%, var(--mm-maroon) 45%, var(--mm-maroon-bright) 75%, var(--mm-maroon-deep) 100%);
+  background: linear-gradient(120deg, var(--mm-maroon) 0%, var(--mm-maroon-bright) 60%, var(--mm-maroon) 100%);
   background-size: 240% 100%;
   animation: mm-header-sheen 10s ease infinite;
   color: #fff;
-  border-bottom: 3px dashed rgba(255, 200, 53, 0.45);
+  border-bottom: 3px solid var(--mm-yellow);
   flex-shrink: 0;
-  box-shadow: 0 6px 18px rgba(42, 20, 32, 0.18);
+  box-shadow: 0 6px 18px rgba(58, 15, 44, 0.18);
   overflow: hidden;
 }
 @keyframes mm-header-sheen {
@@ -270,7 +263,7 @@
   left: 44px;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(255, 200, 53, 0.4) 0%, rgba(255, 200, 53, 0) 68%);
+  background: radial-gradient(circle, rgba(255, 215, 5, 0.4) 0%, rgba(255, 215, 5, 0) 68%);
   transform: translate(-50%, -50%);
   animation: mm-spotlight-breathe 4s ease-in-out infinite;
   pointer-events: none;
@@ -365,8 +358,8 @@
   animation: mm-hero-bob 0.9s ease-in-out infinite;
 }
 @keyframes mm-speaking-pulse {
-  0%, 100% { box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4), 0 0 0 0 rgba(255, 200, 53, 0.7); }
-  50% { box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4), 0 0 0 9px rgba(255, 200, 53, 0); }
+  0%, 100% { box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4), 0 0 0 0 rgba(255, 215, 5, 0.7); }
+  50% { box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4), 0 0 0 9px rgba(255, 215, 5, 0); }
 }
 
 .mm-header-copy {
@@ -461,16 +454,16 @@
   display: flex;
   justify-content: center;
   scrollbar-width: thin;
-  scrollbar-color: rgba(162, 27, 91, 0.35) transparent;
+  scrollbar-color: rgba(196, 22, 135, 0.35) transparent;
 }
 .mm-chat-body::-webkit-scrollbar { width: 8px; }
 .mm-chat-body::-webkit-scrollbar-track { background: transparent; }
 .mm-chat-body::-webkit-scrollbar-thumb {
-  background: rgba(162, 27, 91, 0.3);
+  background: rgba(196, 22, 135, 0.3);
   border-radius: 999px;
 }
 .mm-chat-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(162, 27, 91, 0.5);
+  background: rgba(196, 22, 135, 0.5);
 }
 
 .mm-chat-scroll {
@@ -504,7 +497,7 @@
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(42, 20, 32, 0.18), 0 0 0 2px #fff;
+  box-shadow: 0 2px 6px rgba(58, 15, 44, 0.18), 0 0 0 2px #fff;
   animation: mm-avatar-pop 0.4s var(--mm-ease) both;
 }
 @keyframes mm-avatar-pop {
@@ -523,7 +516,7 @@
 /* Mark's avatar glows gently while he's "typing" a reply */
 .mm-msg-row-bot .mm-typing ~ .mm-avatar,
 .mm-msg-row-bot:has(.mm-typing) .mm-avatar {
-  box-shadow: 0 2px 6px rgba(42, 20, 32, 0.18), 0 0 0 2px #fff, 0 0 0 5px rgba(255, 200, 53, 0.35);
+  box-shadow: 0 2px 6px rgba(58, 15, 44, 0.18), 0 0 0 2px #fff, 0 0 0 5px rgba(255, 215, 5, 0.35);
   animation: mm-avatar-pop 0.4s var(--mm-ease) both, mm-speaking-pulse 1.3s ease-in-out infinite;
 }
 
@@ -546,22 +539,22 @@
 .mm-bubble-bot {
   background: #ffffff;
   color: var(--mm-ink);
-  border: 1px solid rgba(162, 27, 91, 0.12);
+  border: 1px solid rgba(196, 22, 135, 0.12);
   border-bottom-left-radius: 5px;
   box-shadow: var(--mm-shadow-soft);
 }
 .mm-bubble-bot:hover {
-  box-shadow: 0 10px 22px rgba(42, 20, 32, 0.1);
+  box-shadow: 0 10px 22px rgba(58, 15, 44, 0.1);
 }
 
 .mm-bubble-user {
-  background: linear-gradient(135deg, var(--mm-maroon-bright), var(--mm-maroon) 60%, var(--mm-maroon-deep));
+  background: linear-gradient(135deg, var(--mm-maroon-bright), var(--mm-maroon));
   color: #fff;
   border-bottom-right-radius: 5px;
-  box-shadow: 0 4px 14px rgba(162, 27, 91, 0.35);
+  box-shadow: 0 4px 14px rgba(196, 22, 135, 0.35);
 }
 .mm-bubble-user:hover {
-  box-shadow: 0 8px 20px rgba(162, 27, 91, 0.42);
+  box-shadow: 0 8px 20px rgba(196, 22, 135, 0.42);
 }
 
 /* Typing indicator */
@@ -600,21 +593,21 @@
 .mm-option-chip {
   background: #fff;
   color: var(--mm-maroon-deep);
-  border: 1.5px solid rgba(162, 27, 91, 0.28);
+  border: 1.5px solid rgba(196, 22, 135, 0.28);
   border-radius: 999px;
   padding: 9px 16px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(42, 20, 32, 0.06);
+  box-shadow: 0 2px 8px rgba(58, 15, 44, 0.06);
   transition: transform 0.16s var(--mm-ease), background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 .mm-option-chip:hover {
-  background: linear-gradient(135deg, var(--mm-maroon), var(--mm-maroon-bright));
+  background: linear-gradient(135deg, var(--mm-maroon-bright), var(--mm-maroon));
   color: #fff;
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(162, 27, 91, 0.32);
+  box-shadow: 0 8px 18px rgba(196, 22, 135, 0.32);
 }
 .mm-option-chip:active {
   transform: translateY(0) scale(0.97);
@@ -637,14 +630,14 @@
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(162, 27, 91, 0.12);
+  border: 1px solid rgba(196, 22, 135, 0.12);
   box-shadow: var(--mm-shadow-soft);
   transition: transform 0.25s var(--mm-ease), box-shadow 0.25s var(--mm-ease), border-color 0.25s ease;
 }
 .mm-product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--mm-shadow-lift);
-  border-color: rgba(162, 27, 91, 0.3);
+  border-color: rgba(196, 22, 135, 0.3);
 }
 
 .mm-product-media {
@@ -652,7 +645,7 @@
   aspect-ratio: 4 / 3;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(160deg, var(--mm-yellow-soft), #fff);
+  background: linear-gradient(160deg, #fcebf6, #fff);
 }
 
 .mm-product-photo {
@@ -692,7 +685,7 @@
   text-transform: uppercase;
   padding: 4px 9px;
   border-radius: 999px;
-  box-shadow: 0 2px 6px rgba(42, 20, 32, 0.15);
+  box-shadow: 0 2px 6px rgba(58, 15, 44, 0.15);
 }
 
 .mm-product-info {
@@ -701,7 +694,7 @@
   gap: 10px;
   padding: 12px 12px 14px;
   border-top: 3px solid transparent;
-  background: linear-gradient(90deg, var(--mm-maroon), var(--mm-gold)) bottom / 100% 3px no-repeat;
+  background: linear-gradient(90deg, var(--mm-maroon-bright), var(--mm-yellow), var(--mm-teal)) bottom / 100% 3px no-repeat;
 }
 
 .mm-product-name {
@@ -716,7 +709,7 @@
 .mm-product-btn {
   width: 100%;
   margin-top: auto;
-  background: linear-gradient(135deg, var(--mm-maroon), var(--mm-maroon-deep));
+  background: linear-gradient(135deg, var(--mm-maroon-bright), var(--mm-maroon));
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -729,7 +722,7 @@
 .mm-product-btn:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(122, 18, 70, 0.35);
+  box-shadow: 0 6px 14px rgba(160, 16, 112, 0.35);
 }
 
 .mm-more-link {
@@ -762,7 +755,7 @@
   background: #fff;
   border-radius: 18px;
   padding: 20px;
-  border: 1px solid rgba(162, 27, 91, 0.14);
+  border: 1px solid rgba(196, 22, 135, 0.14);
   box-shadow: var(--mm-shadow-soft);
   animation: mm-msg-in 0.34s var(--mm-ease) both;
 }
@@ -774,7 +767,7 @@
   text-transform: uppercase;
   color: var(--mm-maroon-deep);
   padding-bottom: 8px;
-  border-bottom: 1px dashed rgba(162, 27, 91, 0.25);
+  border-bottom: 1px dashed rgba(196, 22, 135, 0.25);
 }
 
 .mm-form-field {
@@ -788,7 +781,7 @@
 
 .mm-form-field input,
 .mm-form-field textarea {
-  border: 1.5px solid rgba(162, 27, 91, 0.2);
+  border: 1.5px solid rgba(196, 22, 135, 0.2);
   border-radius: 10px;
   padding: 9px 12px;
   font-size: 14px;
@@ -802,11 +795,11 @@
 .mm-form-field textarea:focus {
   outline: none;
   border-color: var(--mm-maroon);
-  box-shadow: 0 0 0 3px rgba(162, 27, 91, 0.15);
+  box-shadow: 0 0 0 3px rgba(196, 22, 135, 0.15);
 }
 
 .mm-submit-btn {
-  background: linear-gradient(135deg, var(--mm-yellow), #f4bf33);
+  background: linear-gradient(135deg, var(--mm-yellow), #ffc800);
   color: var(--mm-maroon-deep);
   border: none;
   border-radius: 11px;
@@ -815,13 +808,13 @@
   font-weight: 750;
   cursor: pointer;
   margin-top: 2px;
-  box-shadow: 0 4px 12px rgba(191, 154, 78, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3);
   transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 .mm-submit-btn:hover:not(:disabled) {
   filter: brightness(1.05);
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(191, 154, 78, 0.4);
+  box-shadow: 0 8px 18px rgba(255, 200, 0, 0.4);
 }
 .mm-submit-btn:disabled {
   opacity: 0.6;
@@ -843,7 +836,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  border: 1.5px dashed rgba(162, 27, 91, 0.3);
+  border: 1.5px dashed rgba(196, 22, 135, 0.3);
   border-radius: 12px;
   padding: 16px 12px;
   background: var(--mm-cream);
@@ -871,14 +864,14 @@
 .mm-file-dropzone-hint {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(42, 20, 32, 0.55);
+  color: rgba(58, 15, 44, 0.55);
 }
 
 .mm-file-preview {
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1.5px solid rgba(162, 27, 91, 0.2);
+  border: 1.5px solid rgba(196, 22, 135, 0.2);
   border-radius: 12px;
   padding: 8px 10px;
   background: var(--mm-cream);
@@ -919,14 +912,14 @@
 .mm-file-preview-size {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(42, 20, 32, 0.55);
+  color: rgba(58, 15, 44, 0.55);
 }
 .mm-file-change-btn {
   position: relative;
   font-size: 11.5px;
   font-weight: 700;
   color: var(--mm-maroon-deep);
-  border: 1px solid rgba(162, 27, 91, 0.35);
+  border: 1px solid rgba(196, 22, 135, 0.35);
   border-radius: 8px;
   padding: 6px 9px;
   cursor: pointer;
