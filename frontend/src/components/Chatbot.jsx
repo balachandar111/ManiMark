@@ -7,7 +7,7 @@ const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
 
 const CHATBOT_URL =
-  "http://manimark.speak.genunitys.com/bot/manimark-webchatbot-16a2a2";
+  "https://manimark.speak.genunitys.com/bot/manimark-webchatbot-16a2a2";
 
 // Mark — the brand mascot. Swap this path for your final hosted asset
 // whenever you have one (Cloudinary, S3, etc). For now it's served from
