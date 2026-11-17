@@ -6,6 +6,9 @@ import "./Chatbot.css";
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
 
+const CHATBOT_URL =
+  "http://manimark.speak.genunitys.com/bot/manimark-webchatbot-16a2a2";
+
 // Mark — the brand mascot. Swap this path for your final hosted asset
 // whenever you have one (Cloudinary, S3, etc). For now it's served from
 // /public/assets/mark-hero.png so it works out of the box.
@@ -577,11 +580,9 @@ export default function Chatbot() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  const handleOpen = () => {
-    setOpen(true);
-    if (messages.length === 0) {
-      setCurrentNodeId(START_NODE);
-    }
+  const handleOpen = (e) => {
+    if (e) e.preventDefault();
+    window.location.href = CHATBOT_URL;
   };
 
   const handleOptionClick = (option) => {
@@ -710,7 +711,12 @@ export default function Chatbot() {
 
   if (!open) {
     return (
-      <button className="mm-chat-fab" onClick={handleOpen}>
+      <a
+        className="mm-chat-fab"
+        href={CHATBOT_URL}
+        onClick={handleOpen}
+        aria-label="Speak with Mark - redirect to chatbot"
+      >
         <span className="mm-fab-avatar">
           <img src={MARK_IMAGE} alt="Mark, the Manimark mascot" />
         </span>
@@ -718,7 +724,7 @@ export default function Chatbot() {
           <span className="mm-fab-title">Speak with Mark</span>
           <span className="mm-fab-subtitle">🎙️ Ask me anything</span>
         </span>
-      </button>
+      </a>
     );
   }
 
